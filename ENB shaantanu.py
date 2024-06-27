@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Apr 19 04:40:33 2020
-
-@author: bhaku
-"""
 
 import numpy as np 
 import cvxopt
@@ -105,8 +99,6 @@ def torsion(Sigma, model, method='exact', max_niter=10000):
             t = np.asmatrix(np.diag(sigma)) * x * np.asmatrix(np.diag(1.0/sigma))
     return t
     
-
-
     
 def EffectiveBets(w, Sigma, t):
     w = np.asmatrix(w)
@@ -114,9 +106,9 @@ def EffectiveBets(w, Sigma, t):
     enb = np.exp(- p.T * np.log(p))
     return p, enb
 
+# TODO edit this to remove file dependency
 with open("SPY ticker.txt") as f:
     content = f.readlines()
-# you may also want to remove whitespace characters like `\n` at the end of each line
 content = [x.strip() for x in content] 
 
 data=pd.DataFrame()
